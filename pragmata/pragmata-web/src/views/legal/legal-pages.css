@@ -1,0 +1,117 @@
+.legal-page {
+  padding-bottom: 3rem;
+}
+
+.legal-page-inner {
+  padding-top: 0.5rem;
+  max-width: min(68ch, 100%);
+}
+
+.legal-bc {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: rgba(160, 172, 205, 0.95);
+}
+
+.legal-bc a {
+  color: rgba(120, 210, 255, 0.95);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.legal-bc a:hover {
+  color: var(--color-cta);
+}
+
+.legal-bc-sep {
+  margin: 0 0.35rem;
+  opacity: 0.65;
+}
+
+.legal-hero {
+  margin-bottom: 1.5rem;
+}
+
+.legal-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 0.65rem;
+  text-shadow: var(--glow-heading-sm);
+}
+
+.legal-lead {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.legal-prose h2 {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 1.45rem 0 0.55rem;
+  color: var(--tech-blue);
+  text-shadow: var(--glow-cyan-tight);
+}
+
+.legal-prose p,
+.legal-prose li {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.68;
+  color: var(--color-muted);
+}
+
+.legal-prose ul {
+  margin: 0 0 0.85rem;
+  padding-left: 1.2rem;
+}
+
+.legal-prose li {
+  margin-bottom: 0.35rem;
+}
+
+.legal-prose strong {
+  color: rgba(220, 228, 248, 0.95);
+}
+
+.legal-email {
+  font-weight: 600;
+  color: rgba(230, 236, 252, 0.98);
+  word-break: break-all;
+}
+
+.legal-footer-links {
+  margin-top: 1.65rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(57, 240, 255, 0.22);
+  font-size: 0.88rem;
+  color: var(--color-muted);
+}
+
+.legal-footer-links a {
+  color: rgba(120, 210, 255, 0.95);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.legal-footer-links a:hover {
+  color: var(--color-cta);
+}
+
+@media (prefers-contrast: more) {
+  .legal-hero h1 {
+    text-shadow: none;
+  }
+
+  .legal-prose h2 {
+    text-shadow: none;
+  }
+}
