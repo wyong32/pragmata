@@ -67,33 +67,22 @@
       }
     </script>
 
-    <!-- 延迟加载第三方脚本 -->
-  <script>
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        // 延迟加载Google Analytics
-        const gtagScript = document.createElement('script');
-        gtagScript.async = true;
-        gtagScript.defer = true;
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-8FPKFHBH9K';
-        document.head.appendChild(gtagScript);
-
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-8FPKFHBH9K');
-
-
-        // 延迟加载广告
-        // const adsScript = document.createElement('script');
-        // adsScript.async = true;
-        // adsScript.defer = true;
-        // adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3939531187802459';
-        // adsScript.crossOrigin = 'anonymous';
-        // document.head.appendChild(adsScript);
-      }, 3000);
-    });
-  </script>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-8FPKFHBH9K';
+          document.head.appendChild(gtagScript);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-8FPKFHBH9K');
+        }, 3000);
+      });
+    </script>
   </head>
   <body>
     <div id="app"></div>

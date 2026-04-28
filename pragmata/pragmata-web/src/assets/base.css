@@ -102,23 +102,6 @@ body::after {
   mask-image: radial-gradient(ellipse 100% 90% at 50% 0%, #000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.15) 100%);
 }
 
-/* Subtle scanlines — avoid mix-blend-mode (full-viewport composite cost while scrolling) */
-html::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0, 0, 0, 0.18) 3px,
-    rgba(0, 0, 0, 0.18) 4px
-  );
-  opacity: 0.12;
-}
-
 #app {
   position: relative;
   z-index: 1;
