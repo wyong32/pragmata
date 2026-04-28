@@ -365,12 +365,18 @@ import GameplayUnitWheel from '@/components/GameplayUnitWheel.vue'
   border: 1px solid rgba(57, 240, 255, 0.2);
   background: rgba(5, 6, 14, 0.9);
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.gp-pair-figures .gp-figure {
+  aspect-ratio: 8 / 5;
 }
 
 .gp-figure img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 .gp-figure figcaption {
@@ -398,8 +404,9 @@ import GameplayUnitWheel from '@/components/GameplayUnitWheel.vue'
 .gp-video {
   display: block;
   width: 100%;
-  max-height: min(72vh, 540px);
-  height: auto;
+  height: 100%;
+  max-height: none;
+  object-fit: cover;
   background: #02040a;
   border-radius: 3px;
 }
@@ -408,6 +415,7 @@ import GameplayUnitWheel from '@/components/GameplayUnitWheel.vue'
   max-width: min(100%, 38rem);
   margin-left: auto;
   margin-right: auto;
+  aspect-ratio: 16 / 9;
 }
 
 .gp-showcase {

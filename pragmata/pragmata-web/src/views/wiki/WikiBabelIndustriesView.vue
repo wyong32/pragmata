@@ -164,6 +164,22 @@ const fandomUrl = 'https://pragmata.fandom.com/wiki/Babel_Industries'
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
 
+.lore-figure--portrait {
+  overflow: hidden;
+  border-radius: 3px;
+  aspect-ratio: 800 / 1067;
+  align-self: start;
+  border: 1px solid rgba(220, 140, 80, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.lore-figure--portrait img {
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  box-shadow: none;
+}
+
 .lore-cap {
   margin: 0.6rem 0 0;
   font-size: 0.78rem;

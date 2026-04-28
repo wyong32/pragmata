@@ -322,7 +322,7 @@ watch(
   border-radius: 4px;
   overflow: hidden;
   border: 1px solid rgba(57, 240, 255, 0.22);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   background: #05060c;
 }
 

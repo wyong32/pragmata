@@ -306,7 +306,10 @@ const loreTopics = wikiData.loreTopics
 
 .people-tile-img-wrap {
   position: relative;
-  min-height: 180px;
+  align-self: stretch;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  min-height: 0;
   background: #050308;
 }
 

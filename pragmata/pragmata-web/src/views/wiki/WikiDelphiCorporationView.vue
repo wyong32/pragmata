@@ -120,11 +120,17 @@ const fandomUrl = 'https://pragmata.fandom.com/wiki/Delphi_Corporation'
   padding: 1rem;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(57, 240, 255, 0.2);
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .delphi-logo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
   display: block;
 }
 

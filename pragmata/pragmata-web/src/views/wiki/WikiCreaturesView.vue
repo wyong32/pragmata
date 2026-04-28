@@ -49,3 +49,26 @@
 
 <script setup>
 </script>
+
+<style scoped>
+/* 与站内其它插图一致：先占位再解码，降低 CLS */
+.img-inline {
+  margin: 1.25rem 0;
+  max-width: min(100%, 360px);
+}
+
+.img-inline img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 320 / 480;
+  object-fit: cover;
+  border: 1px solid var(--color-border-strong);
+  box-shadow: 0 0 20px rgba(57, 240, 255, 0.08);
+}
+
+.img-inline figcaption {
+  font-size: 0.8rem;
+  color: var(--color-dim);
+  margin-top: 0.4rem;
+}
+</style>

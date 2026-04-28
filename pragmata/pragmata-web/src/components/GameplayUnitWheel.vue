@@ -223,8 +223,10 @@ const activeClipClass = computed(() => {
 .unit-widget-video {
   display: block;
   width: 100%;
-  max-height: min(68vh, 480px);
+  aspect-ratio: 16 / 9;
+  max-height: none;
   height: auto;
+  object-fit: cover;
   border-radius: 3px;
   background: #02040a;
 }

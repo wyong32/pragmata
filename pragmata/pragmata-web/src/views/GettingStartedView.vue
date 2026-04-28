@@ -581,14 +581,19 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
 
 .gs-what-figure {
   margin: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid rgba(57, 240, 255, 0.22);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
 }
 
 .gs-what-figure img {
   width: 100%;
+  height: 100%;
   display: block;
-  border-radius: 3px;
-  border: 1px solid rgba(57, 240, 255, 0.22);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+  object-fit: cover;
+  object-position: center;
 }
 
 .gs-fig-cap {

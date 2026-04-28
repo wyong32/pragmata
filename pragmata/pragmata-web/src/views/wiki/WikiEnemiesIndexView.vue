@@ -272,9 +272,10 @@ const entries = wikiEnemyEntries
 }
 
 .enemy-block-img {
-  width: 100%;
-  max-width: 220px;
-  height: auto;
+  display: block;
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  object-fit: cover;
   border: 1px solid rgba(57, 240, 255, 0.2);
 }
 
