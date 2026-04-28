@@ -3,7 +3,16 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <section class="hero hero--cinematic" aria-labelledby="hero-heading">
-      <div class="hero-bg" :style="{ backgroundImage: `url(${HERO_BG_WEBP})` }" aria-hidden="true" />
+      <img
+        class="hero-bg"
+        src="/images/bg.webp"
+        alt=""
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        decoding="async"
+        aria-hidden="true"
+      />
       <div class="hero-cinematic" aria-hidden="true" />
       <span class="hero-slant" aria-hidden="true">GUIDE</span>
       <div class="container hero-container">
@@ -78,11 +87,25 @@
           <div class="trailers-embed-wrap">
             <div class="embed-responsive">
               <iframe
+                v-if="trailerPlaying"
                 :src="trailerEmbedSrc"
                 title="PRAGMATA — Main Trailer (Capcom)"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               />
+              <button
+                v-else
+                type="button"
+                class="trailer-facade"
+                aria-label="Load and play PRAGMATA main trailer from YouTube"
+                @click="trailerPlaying = true"
+              >
+                <span class="trailer-facade-scrim" aria-hidden="true" />
+                <svg class="trailer-play-icon" viewBox="0 0 80 80" width="80" height="80" aria-hidden="true" focusable="false">
+                  <circle class="trailer-play-ring" cx="40" cy="40" r="36" />
+                  <path class="trailer-play-triangle" d="M34 26 L58 40 34 54 Z" />
+                </svg>
+              </button>
             </div>
             <p class="trailers-caption tech-mono">
               <a href="/media">More trailers &amp; media on-site →</a>
@@ -372,14 +395,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import MechanicalFrame from '@/components/MechanicalFrame.vue'
 import storefrontFacts from '@/data/storefrontFacts.js'
 
 const MAIN_TRAILER_EMBED = 'https://www.youtube.com/embed/1zZry-G6adI'
 const trailerEmbedSrc = `${MAIN_TRAILER_EMBED}?rel=0`
-
-/** Put the image at `public/images/bg.webp` → served as `/images/bg.webp` */
-const HERO_BG_WEBP = '/images/bg.webp'
+const trailerPlaying = ref(false)
 
 const steamUrl = storefrontFacts.STEAM_PRAGMATA_URL
 const releaseLine = storefrontFacts.PRAGMATA_RELEASE_STEAM_LINE
@@ -435,16 +457,16 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
     0 0 48px rgba(57, 240, 255, 0.15);
 }
 
-/* Static hero art (no video — lighter on CPU/GPU) */
+/* Hero art as <img> — explicit ratio + fetchpriority helps LCP vs CSS background */
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   background-color: #050812;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* Own compositor layer — avoids extra resamples while the hero scrolls into view */
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }
@@ -749,6 +771,68 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.trailer-facade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  color: var(--neon-cyan);
+}
+
+.trailer-facade:focus {
+  outline: none;
+}
+
+.trailer-facade:focus-visible {
+  outline: 2px solid var(--neon-magenta);
+  outline-offset: 3px;
+}
+
+.trailer-facade-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 4, 12, 0.55) 0%, rgba(4, 8, 20, 0.78) 50%, rgba(2, 4, 12, 0.88) 100%),
+    radial-gradient(ellipse 90% 70% at 50% 45%, rgba(57, 240, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.trailer-facade:hover .trailer-facade-scrim {
+  opacity: 0.92;
+}
+
+.trailer-play-icon {
+  position: relative;
+  z-index: 1;
+  width: clamp(3.25rem, 9vw, 4.5rem);
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(57, 240, 255, 0.55)) drop-shadow(0 0 28px rgba(255, 42, 122, 0.2));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.trailer-facade:hover .trailer-play-icon {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 20px rgba(57, 240, 255, 0.75)) drop-shadow(0 0 36px rgba(255, 42, 122, 0.28));
+}
+
+.trailer-play-ring {
+  fill: rgba(6, 10, 24, 0.65);
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.trailer-play-triangle {
+  fill: currentColor;
 }
 
 .trailers-caption {

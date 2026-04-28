@@ -21,9 +21,9 @@
   --neon-magenta: #ff2a7a;
   --neon-cyan: #39f0ff;
   --grid-line: rgba(57, 240, 255, 0.055);
-  /* System stack only — no webfont requests; ui-sans-serif reads native on modern OS */
-  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  --font-display: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  /* Native UI sans only — no webfonts or third-party font CSS */
+  --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mf-border: rgba(57, 240, 255, 0.38);
   --mf-bg: rgba(8, 11, 26, 0.88);
   --mf-corner: #39f0ff;
