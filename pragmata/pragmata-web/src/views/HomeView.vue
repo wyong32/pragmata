@@ -3,8 +3,7 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <section class="hero hero--cinematic" aria-labelledby="hero-heading">
-      <div class="hero-bg" :style="{ backgroundImage: `url(${HERO_BG_WEBP})` }" aria-hidden="true" />
-      <div class="hero-cinematic" aria-hidden="true" />
+      <div class="hero-bg" aria-hidden="true" />
       <span class="hero-slant" aria-hidden="true">GUIDE</span>
       <div class="container hero-container">
         <div class="hero-inner">
@@ -394,8 +393,6 @@ const MAIN_TRAILER_EMBED = 'https://www.youtube.com/embed/1zZry-G6adI'
 const trailerEmbedSrc = `${MAIN_TRAILER_EMBED}?rel=0`
 const trailerPlaying = ref(false)
 
-const HERO_BG_WEBP = '/images/bg.webp'
-
 const steamUrl = storefrontFacts.STEAM_PRAGMATA_URL
 const releaseLine = storefrontFacts.PRAGMATA_RELEASE_STEAM_LINE
 const pcMin = storefrontFacts.PC_SPECS_STEAM.minimum
@@ -454,6 +451,7 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   inset: 0;
   z-index: 0;
   background-color: #050812;
+  background-image: url('/images/bg.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -461,11 +459,11 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   backface-visibility: hidden;
 }
 
-/* Cinematic letterbox + vignette + readable lower third */
-.hero-cinematic {
+/* Cinematic letterbox + vignette + readable lower third（单层 ::after，少一层 DOM） */
+.hero-bg::after {
+  content: '';
   position: absolute;
   inset: 0;
-  z-index: 1;
   pointer-events: none;
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, transparent 28%, transparent 62%, rgba(1, 2, 8, 0.92) 100%),
@@ -1131,25 +1129,6 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   margin: 1.25rem 0 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .hero-title {
-    animation: home-hero-title-glow 4.5s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes home-hero-title-glow {
-  0% {
-    text-shadow: var(--glow-hero-title);
-  }
-  100% {
-    text-shadow:
-      0 0 42px rgba(57, 240, 255, 0.78),
-      0 0 96px rgba(57, 240, 255, 0.42),
-      0 0 160px rgba(255, 42, 122, 0.26),
-      0 0 6px rgba(240, 244, 255, 0.9);
-  }
-}
-
 @media (prefers-contrast: more) {
   .hero-title,
   .section-heading,
@@ -1160,7 +1139,6 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   .card-h,
   .faq-card-q {
     text-shadow: none !important;
-    animation: none !important;
   }
 }
 

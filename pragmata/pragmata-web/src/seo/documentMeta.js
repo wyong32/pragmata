@@ -54,9 +54,7 @@ function setLinkRel(rel, href) {
  * @param {string} [p.ogType] - og:type，文章页用 article
  * @param {object} [p.jsonLd] - 若传入则替换默认 WebPage；否则生成默认
  */
-export function applyDocumentSeo({ path, title, description, keywords, ogImage, ogType, jsonLd }) {
-  if (typeof document === 'undefined') return
-
+function applyDocumentSeoSync({ path, title, description, keywords, ogImage, ogType, jsonLd }) {
   const origin = getCanonicalOrigin()
   const pathname = path.startsWith('/') ? path : `/${path}`
   const canonicalUrl = `${origin}${pathname === '//' ? '/' : pathname}`
@@ -100,6 +98,16 @@ export function applyDocumentSeo({ path, title, description, keywords, ogImage, 
       url: canonicalUrl,
     })
   injectJsonLd(ld)
+}
+
+/**
+ * 推迟到下一帧再写 head，避免与 Vue 路由/首屏 patch 同帧交错 querySelector/append，减轻强制重排与 TBT。
+ */
+export function applyDocumentSeo(params) {
+  if (typeof document === 'undefined') return
+  requestAnimationFrame(() => {
+    applyDocumentSeoSync(params)
+  })
 }
 
 export function buildDefaultWebPageJsonLd({ name, description, url }) {

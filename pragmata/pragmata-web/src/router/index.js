@@ -1,16 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import guides from '@/data/guides.js'
 import { seoConfig } from '@/seo/config.js'
 import { applyDocumentSeo, buildArticleJsonLd, getCanonicalOrigin } from '@/seo/documentMeta.js'
-import HomeView from '@/views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    /* 同步首页：首屏与 windrose-web 一致，避免 RouterView 等 chunk 时空壳导致 CLS / LCP 变差 */
-    component: HomeView,
+    /* 懒加载首页：首包更小，利于 TBT / Speed Index；页脚稳定由 App.vue flex 壳保证 */
+    component: () => import('@/views/HomeView.vue'),
     meta: {
       title: 'PRAGMATA game | Getting Started, Characters, Gameplay & Wiki',
       description:
@@ -273,28 +271,34 @@ const router = createRouter({
 router.afterEach((to) => {
   if (to.name === 'guide-detail') {
     const slug = to.params.slug
-    const g = Array.isArray(guides) ? guides.find((x) => x.addressBar === slug) : null
-    if (!g) return
-    const path = `/guides/${g.addressBar}`
-    const chapter = String(g.seo?.title || g.title).replace(/\s*\|\s*/g, ' · ')
-    const title = `PRAGMATA game | Guides — ${chapter}`
-    const description = g.seo?.description || g.description || seoConfig.defaults.description
-    const keywords = g.seo?.keywords || seoConfig.defaults.keywords
-    const origin = getCanonicalOrigin()
-    applyDocumentSeo({
-      path,
-      title,
-      description,
-      keywords,
-      ogImage: g.imageUrl,
-      ogType: 'article',
-      jsonLd: buildArticleJsonLd({
-        headline: g.seo?.title || g.title,
+    void import('@/data/guides.js').then((mod) => {
+      if (router.currentRoute.value.name !== 'guide-detail' || router.currentRoute.value.params.slug !== slug) {
+        return
+      }
+      const guides = mod.default
+      const g = Array.isArray(guides) ? guides.find((x) => x.addressBar === slug) : null
+      if (!g) return
+      const path = `/guides/${g.addressBar}`
+      const chapter = String(g.seo?.title || g.title).replace(/\s*\|\s*/g, ' · ')
+      const title = `PRAGMATA game | Guides — ${chapter}`
+      const description = g.seo?.description || g.description || seoConfig.defaults.description
+      const keywords = g.seo?.keywords || seoConfig.defaults.keywords
+      const origin = getCanonicalOrigin()
+      applyDocumentSeo({
+        path,
+        title,
         description,
-        url: `${origin}${path}`,
-        datePublished: g.publishDate,
-        imageUrl: g.imageUrl,
-      }),
+        keywords,
+        ogImage: g.imageUrl,
+        ogType: 'article',
+        jsonLd: buildArticleJsonLd({
+          headline: g.seo?.title || g.title,
+          description,
+          url: `${origin}${path}`,
+          datePublished: g.publishDate,
+          imageUrl: g.imageUrl,
+        }),
+      })
     })
     return
   }

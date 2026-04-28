@@ -2,7 +2,7 @@
   <header class="app-header" role="banner">
     <div class="container app-header-inner">
       <a class="app-logo" href="/" aria-label="PRAGMATA game guide home">
-        <img class="app-logo-mark" src="/images/logo.png" width="36" height="36" alt="" decoding="async" />
+        <img class="app-logo-mark" src="/images/logo.png" width="60" height="60" alt="" decoding="async" />
         <span class="app-logo-text">PRAGMATA Guide</span>
       </a>
 
