@@ -3,16 +3,7 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <section class="hero hero--cinematic" aria-labelledby="hero-heading">
-      <img
-        class="hero-bg"
-        src="/images/bg.webp"
-        alt=""
-        width="1920"
-        height="1080"
-        fetchpriority="high"
-        decoding="async"
-        aria-hidden="true"
-      />
+      <div class="hero-bg" :style="{ backgroundImage: `url(${HERO_BG_WEBP})` }" aria-hidden="true" />
       <div class="hero-cinematic" aria-hidden="true" />
       <span class="hero-slant" aria-hidden="true">GUIDE</span>
       <div class="container hero-container">
@@ -403,6 +394,8 @@ const MAIN_TRAILER_EMBED = 'https://www.youtube.com/embed/1zZry-G6adI'
 const trailerEmbedSrc = `${MAIN_TRAILER_EMBED}?rel=0`
 const trailerPlaying = ref(false)
 
+const HERO_BG_WEBP = '/images/bg.webp'
+
 const steamUrl = storefrontFacts.STEAM_PRAGMATA_URL
 const releaseLine = storefrontFacts.PRAGMATA_RELEASE_STEAM_LINE
 const pcMin = storefrontFacts.PC_SPECS_STEAM.minimum
@@ -446,7 +439,6 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  min-height: min(88vh, 960px);
   display: flex;
   align-items: center;
   padding: clamp(2.75rem, 7vw, 5rem) 0 clamp(3.25rem, 10vw, 6rem);
@@ -457,16 +449,14 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
     0 0 48px rgba(57, 240, 255, 0.15);
 }
 
-/* Hero art as <img> — explicit ratio + fetchpriority helps LCP vs CSS background */
 .hero-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
   background-color: #050812;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
 }

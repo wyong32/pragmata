@@ -3,12 +3,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import guides from '@/data/guides.js'
 import { seoConfig } from '@/seo/config.js'
 import { applyDocumentSeo, buildArticleJsonLd, getCanonicalOrigin } from '@/seo/documentMeta.js'
+import HomeView from '@/views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/HomeView.vue'),
+    /* 同步首页：首屏与 windrose-web 一致，避免 RouterView 等 chunk 时空壳导致 CLS / LCP 变差 */
+    component: HomeView,
     meta: {
       title: 'PRAGMATA game | Getting Started, Characters, Gameplay & Wiki',
       description:
@@ -261,7 +263,7 @@ const router = createRouter({
   routes,
   scrollBehavior(to, _from, savedPosition) {
     if (to.hash) {
-      return { el: to.hash, top: 80, behavior: 'smooth' }
+      return { el: to.hash, top: 80, behavior: 'auto' }
     }
     if (savedPosition) return savedPosition
     return { top: 0 }
