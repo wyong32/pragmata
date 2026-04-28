@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import HomeView from '@/views/HomeView.vue'
 import { seoConfig } from '@/seo/config.js'
 import { applyDocumentSeo, buildArticleJsonLd, getCanonicalOrigin } from '@/seo/documentMeta.js'
 
@@ -7,8 +8,8 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    /* 懒加载首页：首包更小，利于 TBT / Speed Index；页脚稳定由 App.vue flex 壳保证 */
-    component: () => import('@/views/HomeView.vue'),
+    /* 与 App 同步加载：避免主区域先空后满造成高 CLS（PSI 常见） */
+    component: HomeView,
     meta: {
       title: 'PRAGMATA game | Getting Started, Characters, Gameplay & Wiki',
       description:

@@ -4,7 +4,7 @@
       <div class="app-footer-content">
         <div class="app-footer-brand">
           <div class="app-footer-brand-row">
-            <img class="app-footer-logo" src="/images/logo.png" width="40" height="40" alt="" decoding="async" />
+            <img class="app-footer-logo" src="/images/logo.png" width="60" height="60" alt="" decoding="async" />
             <p class="app-footer-title">PRAGMATA Guide</p>
           </div>
           <p class="app-footer-disclaimer">

@@ -745,8 +745,7 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
 .embed-responsive {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid var(--color-border-strong);
   box-shadow: 0 0 28px rgba(57, 240, 255, 0.1);
@@ -922,6 +921,8 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
 .char-visual {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 16 / 9;
+  width: 100%;
   border-bottom: 1px solid rgba(57, 240, 255, 0.28);
   background: linear-gradient(180deg, #0a0e1c 0%, #060810 100%);
 }
@@ -929,7 +930,7 @@ const pcRec = storefrontFacts.PC_SPECS_STEAM.recommended
 .char-photo {
   display: block;
   width: 100%;
-  height: clamp(200px, 28vw, 340px);
+  height: 100%;
   object-fit: cover;
   object-position: center 20%;
 }
