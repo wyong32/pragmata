@@ -29,8 +29,8 @@
         experienced in-game.
       </p>
       <figure class="img-inline">
-        <img src="/images/wiki/basic-walker.webp" width="320" height="480" alt="Basic walker — wiki render" loading="lazy" />
-        <figcaption>Example unit art (local copy from Pragmata Wiki CDN) — see the full roster with grids on the enemies list.</figcaption>
+        <img src="/images/wiki/basic-walker.webp" width="320" height="480" alt="Basic walker — unit render" loading="lazy" />
+        <figcaption>Example unit art (stored locally for this guide) — see the illustrated roster on the enemies list.</figcaption>
       </figure>
       <p>
         <a href="/wiki/enemies">Enemies list (illustrated) →</a>

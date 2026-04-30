@@ -18,7 +18,7 @@ export default {
     },
     {
       title: 'Enemies — illustrated list',
-      blurb: 'Walkers, turrets, crawlers, SectorGuard — grids, roles, and Fandom mirrors.',
+      blurb: 'Walkers, turrets, crawlers, SectorGuard — grids, roles, and on-site art.',
       path: '/wiki/enemies',
     },
     {

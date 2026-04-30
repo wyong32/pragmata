@@ -11,7 +11,7 @@
 
       <header class="guides-hero">
         <p class="guides-hero-kicker">Player guides</p>
-        <h1 class="guides-hero-title">Guides</h1>
+        <h1 class="guides-hero-title">PRAGMATA Guides</h1>
         <p class="guides-hero-lead">
           Practical articles — launch prep, demo goals, platforms, combat habits, editions, Shelter. Separate from the lore-focused
           <a class="guides-hero-a" href="/wiki">wiki</a>.

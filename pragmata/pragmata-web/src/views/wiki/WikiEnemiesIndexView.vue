@@ -45,8 +45,6 @@
             <p class="enemy-block-meta">{{ e.role }} · {{ e.grid }}</p>
             <p class="enemy-block-text">{{ e.summary }}</p>
             <p class="enemy-block-links">
-              <a class="ext" :href="fandomBase + e.wikiPath" target="_blank" rel="noopener noreferrer">Fandom article ↗</a>
-              <span class="dot" aria-hidden="true">·</span>
               <a href="/wiki/delphi-corporation">Delphi Corporation</a>
               <span class="dot" aria-hidden="true">·</span>
               <a href="/wiki/babel-industries">Babel Industries</a>
@@ -57,8 +55,7 @@
 
       <footer class="enemies-foot">
         <p>
-          Category mirror:
-          <a href="https://pragmata.fandom.com/wiki/Category:Enemies" target="_blank" rel="noopener noreferrer">Category:Enemies — Pragmata Wiki</a>. Thumbnails stored locally from wiki CDN.
+          Thumbnails on this list are stored locally for faster loading. Treat names and grid notes as pre-release orientation — verify in the shipping build.
         </p>
       </footer>
     </div>
@@ -66,7 +63,7 @@
 </template>
 
 <script setup>
-import { wikiEnemyEntries, fandomBase } from '@/data/wikiLore.js'
+import { wikiEnemyEntries } from '@/data/wikiLore.js'
 
 const entries = wikiEnemyEntries
 </script>
@@ -314,11 +311,6 @@ const entries = wikiEnemyEntries
   color: var(--neon-cyan);
   font-weight: 600;
   text-decoration: none;
-}
-
-.enemy-block-links a.ext {
-  color: rgba(200, 210, 235, 0.95);
-  border-bottom: 1px solid rgba(120, 140, 180, 0.5);
 }
 
 .enemy-block-links a:hover {

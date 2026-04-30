@@ -85,9 +85,7 @@
 
       <footer class="wiki-hub-foot">
         <p>
-          Lore text on organization pages summarizes the
-          <a href="https://pragmata.fandom.com/wiki/Pragmata_Wiki" target="_blank" rel="noopener noreferrer">Pragmata Wiki (Fandom)</a> community articles; confirm details in-game and on Capcom’s official
-          site.
+          Lore on this site is unofficial and condensed for browsing; confirm names and story beats in-game and on Capcom’s official channels.
         </p>
       </footer>
     </div>

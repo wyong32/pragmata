@@ -16,7 +16,7 @@
             src="/images/wiki/delphi-corporation-logo.png"
             width="800"
             height="450"
-            alt="Delphi Corporation logo (Pragmata Wiki)"
+            alt="Delphi Corporation logo (community reference)"
             loading="eager"
           />
         </div>
@@ -51,17 +51,12 @@
         </ul>
 
         <p class="lore-source">
-          Community article:
-          <a :href="fandomUrl" target="_blank" rel="noopener noreferrer">Delphi Corporation — Pragmata Wiki (Fandom)</a>. Logo image stored locally from wiki CDN.
+          This page condenses themes from trailers and official messaging. Logo art is stored locally for performance — confirm final names and copy in-game.
         </p>
       </article>
     </div>
   </div>
 </template>
-
-<script setup>
-const fandomUrl = 'https://pragmata.fandom.com/wiki/Delphi_Corporation'
-</script>
 
 <style scoped>
 .lore-inner {

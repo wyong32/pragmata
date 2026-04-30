@@ -20,7 +20,7 @@
 
       <div class="lore-split">
         <figure class="lore-figure lore-figure--portrait">
-          <img src="/images/wiki/diana-babel-context.jpg" width="800" height="1067" alt="Diana — promotional render (Fandom wiki asset)" loading="lazy" />
+          <img src="/images/wiki/diana-babel-context.jpg" width="800" height="1067" alt="Diana — promotional render (community wiki reference art)" loading="lazy" />
           <figcaption class="lore-cap">
             Community wiki notes: Diana’s jacket carried a visible “Babel Industries” label in early announcement material; later marketing sometimes omits it — treat on-screen builds as authoritative.
           </figcaption>
@@ -48,19 +48,13 @@
           </ul>
 
           <p class="lore-source">
-            Primary community write-up:
-            <a :href="fandomUrl" target="_blank" rel="noopener noreferrer">Babel Industries — Pragmata Wiki (Fandom)</a>. Images on this page were downloaded from the same wiki CDN for local performance;
-            CC-BY-SA may apply — verify license on Fandom before re-publishing elsewhere.
+            Images on this page are stored locally for faster loading. When reusing art outside this site, follow Capcom and storefront licensing — do not assume community mirrors are cleared for republication.
           </p>
         </article>
       </div>
     </div>
   </div>
 </template>
-
-<script setup>
-const fandomUrl = 'https://pragmata.fandom.com/wiki/Babel_Industries'
-</script>
 
 <style scoped>
 .lore-inner {

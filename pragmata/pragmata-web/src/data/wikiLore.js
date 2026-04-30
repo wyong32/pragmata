@@ -33,12 +33,11 @@ export const wikiOrganizations = [
   },
 ]
 
-/** Hostile units — summaries aligned with Pragmata Wiki (Fandom) infoboxes & descriptions. */
+/** Hostile units — summaries from trailer / marketing discourse; confirm in-game. */
 export const wikiEnemyEntries = [
   {
     id: 'walkers',
     title: 'Walkers',
-    wikiPath: 'Walker',
     image: '/images/wiki/walker-render.png',
     role: 'Product line',
     grid: '4×4 · 2 blue nodes (basic pattern)',
@@ -48,7 +47,6 @@ export const wikiEnemyEntries = [
   {
     id: 'basic-walker',
     title: 'Basic walker',
-    wikiPath: 'Basic_walker',
     image: '/images/wiki/basic-walker.webp',
     role: 'Ground threat',
     grid: '4×4 · 2 blue',
@@ -58,7 +56,6 @@ export const wikiEnemyEntries = [
   {
     id: 'heavy-walker',
     title: 'Heavy walker',
-    wikiPath: 'Heavy_walker',
     image: '/images/wiki/heavy-walker.webp',
     role: 'Ground threat',
     grid: '5×5 · 3 blue · 1 gray',
@@ -68,7 +65,6 @@ export const wikiEnemyEntries = [
   {
     id: 'hovering-turret',
     title: 'Hovering turret',
-    wikiPath: 'Hovering_turret',
     image: '/images/wiki/hovering-turret.webp',
     role: 'Ranged',
     grid: '3×3 · 1 blue',
@@ -78,7 +74,6 @@ export const wikiEnemyEntries = [
   {
     id: 'missile-turret',
     title: 'Missile Turret',
-    wikiPath: 'Missile_Turret',
     image: '/images/wiki/missile-turret.webp',
     role: 'Ranged',
     grid: '4×4 minus one corner · 1 blue',
@@ -88,7 +83,6 @@ export const wikiEnemyEntries = [
   {
     id: 'quadraped',
     title: 'Quadraped',
-    wikiPath: 'Quadraped',
     image: '/images/wiki/quadraped.webp',
     role: 'Mobile threat',
     grid: '3×4 · 2 blue',
@@ -98,7 +92,6 @@ export const wikiEnemyEntries = [
   {
     id: 'big-crawler',
     title: 'Big Crawler',
-    wikiPath: 'Big_Crawler',
     image: '/images/wiki/big-crawler.webp',
     role: 'Elite',
     grid: '5×5 · 3 blue · antenna',
@@ -108,7 +101,6 @@ export const wikiEnemyEntries = [
   {
     id: 'sector-guard',
     title: 'SectorGuard',
-    wikiPath: 'SectorGuard',
     image: '/images/wiki/sectorguard-render.webp',
     role: 'Boss · S-35 line',
     grid: '5×5 · 3 blue · 1 red',
@@ -116,5 +108,3 @@ export const wikiEnemyEntries = [
       'Delphi military-line Bot guarding high-priority installations — guided low-gravity missiles, thruster rushes, and red ground telegraphs. First major boss encounter after a power-restoration beat.',
   },
 ]
-
-export const fandomBase = 'https://pragmata.fandom.com/wiki/'
